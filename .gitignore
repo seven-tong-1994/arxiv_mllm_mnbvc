@@ -8,3 +8,5 @@ tests/temp/*
 # ignore output dirs
 temp_dir/
 output_dir/
+output_dir_original/
+temp_dir_original/
