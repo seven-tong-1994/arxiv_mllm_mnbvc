@@ -1,0 +1,70 @@
+% Some commands for colors and symbols.
+
+\newcommand{\lexical}[1]{{\color{c1} \textbf{#1}}}
+\newcommand{\numerical}[1]{{\color{c2} \textbf{#1}}}
+\newcommand{\coref}[1]{{\color{c3} \textbf{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{table*}[t]
+  \setlength{\tabcolsep}{.25em}
+  \footnotesize
+  \centering
+
+  \begin{subtable}[t!]{\linewidth}
+    \begin{tabularx}{\textwidth}{ X l l l }
+      \toprule
+      \textbf{Claim} & \textbf{Association type} & \textbf{Causal} & \textbf{Directional} \\
+      \midrule
+      Female carriers of the Apolipoprotein E4 (APOE4) allele have a reduced risk for Alzheimer's disease. & Mutation / Disease & \xmark & \cmark \\
+      \midrule
+      Side effects associated with antidepressants increases risk of mortality in postmenopausal women. & Drug / Outcome & \cmark & \cmark \\
+      \midrule
+      Phosphorylation of the ATM protein regulates DNA damage-induced neuronal death. & Pathway / Phenotype & \cmark & \xmark \\
+      \midrule
+      Tuberculosis incidence is correlated with residential crowding in the UK. & Environment / Disease & \xmark & \cmark \\
+      \bottomrule
+    \end{tabularx}
+
+    \subcaption{Claims express diverse associations; some are causal and / or directional.}
+    \label{tbl:scifact_claim_types}
+  \end{subtable}
+
+  %%%%%%%%%%%%%%%%%%%%
+
+  \begin{subtable}[t]{\linewidth} 
+
+    \begin{tabularx}{\textwidth}{ X X r }
+      \toprule
+      \textbf{Claim} & \textbf{Evidence} & \textbf{Label} \\
+      \midrule
+
+      Taking \lexical{antidepressants} is associated with an increase in the A$\beta$ level in the brain of experimental animals. &
+      A$\beta$ production in CSF was \numerical{slowed by 37\%} in the \lexical{citalopram} group compared to placebo. &
+      \refutes \\
+      \midrule
+
+      Radiographic verified pneumonia predictions are improved by the combination of physical examinations with \lexical{C-reactive protein values}. &
+      Addition of \lexical{CRP} at the \numerical{optimal cut off of $>$30 mg/L} increased the \numerical{ROC area to 0.77 (0.73 to 0.81)} \dots &
+      \supports \\
+      \midrule
+
+      \coref{Low saturated fat diets} do not have adverse effects on growth or development of infants. &
+      Neurological development of children in the \coref{intervention group} was at least as good as that of children in the control group. &
+      \supports \\
+      \midrule
+
+      \lexical{Genomic instability} in leukemia cells results from a decrease in reactive oxygen species from oncogene activation. &
+      BCR/ABL-induced reactive oxygen species (ROSs) cause \lexical{chronic oxidative DNA damage} \dots &
+      \refutes \\
+
+      \bottomrule
+    \end{tabularx}
+
+    \subcaption{The fact-checking system must recognize \lexical{lexical relations}, perform \numerical{quantitative reasoning} and \coref{coreference} resolution.}
+    \label{tbl:scifact_reasoning_types}
+  \end{subtable}
+
+  \caption{Examples of common challenges unique to scientific fact-checking.}
+  \label{tbl:scifact_challenges}
+\end{table*}

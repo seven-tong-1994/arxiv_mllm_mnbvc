@@ -1,0 +1,43 @@
+\definecolor{c1}{rgb}{0.12, 0.46, 0.70}
+\definecolor{c2}{rgb}{1.0, 0.50, 0.05}
+\definecolor{c3}{rgb}{0.17,0.63,0.17}
+
+\newcommand{\lexical}[1]{{\color{c1} \textbf{#1}}}
+\newcommand{\numerical}[1]{{\color{c2} \textbf{#1}}}
+\newcommand{\coref}[1]{{\color{c3} \textbf{#1}}}
+
+\begin{table*}[t]
+  \setlength{\tabcolsep}{.25em}
+  \footnotesize
+  \centering
+
+  \begin{tabularx}{\textwidth}{ X X r }
+    \toprule
+    \textbf{Claim} & \textbf{Evidence} & \textbf{Label} \\
+    \midrule
+
+    Taking \lexical{antidepressants} is associated with an increase in the A$\beta$ level in the brain of experimental animals. &
+    A$\beta$ production in CSF was \numerical{slowed by 37\%} in the \lexical{citalopram} group compared to placebo. &
+    \refutes \\
+    \midrule
+
+    Radiographic verified pneumonia predictions are improved by the combination of physical examinations with \lexical{C-reactive protein values}. &
+    Addition of \lexical{CRP} at the \numerical{optimal cut off of $>$30 mg/L} increased the \numerical{ROC area to 0.77 (0.73 to 0.81)} \dots &
+    \supports \\
+    \midrule
+
+    \coref{Low saturated fat diets} do not have adverse effects on growth or development of infants. &
+    Neurological development of children in the \coref{intervention group} was at least as good as that of children in the control group. &
+    \supports \\
+    \midrule
+
+    \lexical{Genomic instability} in leukemia cells results from a decrease in reactive oxygen species from oncogene activation. &
+     BCR/ABL-induced reactive oxygen species (ROSs) cause \lexical{chronic oxidative DNA damage} \dots &
+    \refutes \\
+
+    \bottomrule
+  \end{tabularx}
+
+  \caption{Science-specific fact-checking challenges, including recognizing \lexical{lexical relations}, \numerical{quantitative reasoning}, and \coref{coreference}.}
+  \label{tbl:scifact_reasoning_types}
+\end{table*}

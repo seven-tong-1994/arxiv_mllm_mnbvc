@@ -1,0 +1,22 @@
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.4em}
+  \centering
+
+    \begin{tabularx}{\columnwidth}{l *{3}{c}  *{3}{c}}
+      \toprule
+      & \multicolumn{3}{c}{\textbf{Rationale selection}} & \multicolumn{3}{c}{\textbf{Entailment}} \\
+      \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+      & P & R & F1 & \multicolumn{3}{c}{Accuracy} \\
+      \midrule
+      \scibert      &       47.0 &    80.6 & 59.4 &     \multicolumn{3}{c}{74.3} \\
+      \bioroberta   &       47.8 &    82.0 & 60.4 &    \multicolumn{3}{c}{76.3}   \\
+      \robertabase  &       47.5 &    81.4 & 60.0 &  \multicolumn{3}{c}{72.3}     \\
+      \robertalarge &       48.8 &    83.6 & 61.6 &   \multicolumn{3}{c}{81.3}    \\
+      \bottomrule
+    \end{tabularx}
+
+    \caption{Comparison of different \bert variants for rationale selection and entailment prediction, with gold inputs. \dw{Note that we're doing top-$k$ decoding.}}
+    \label{tbl:analysis_bert}
+  \end{table}

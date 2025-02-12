@@ -1,0 +1,50 @@
+\begin{table*}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.5em}
+  \centering
+
+  \begin{tabularx}{\linewidth}{*{3}{l} *{6}{c} *{1}{c} *{6}{c}}
+
+    \toprule
+
+    & & & \multicolumn{6}{c}{\textbf{Sentence-level}} & & \multicolumn{6}{c}{\textbf{Abstract-level}} \\
+
+     & & & \multicolumn{3}{c}{\textbf{Selection-Only}} & \multicolumn{3}{c}{\textbf{Selection+Label}} & & \multicolumn{3}{c}{\textbf{Label-Only}} & \multicolumn{3}{c}{\textbf{Label+Rationale}}  \\
+
+    \cmidrule(lr){4-6} \cmidrule(lr){7-9} \cmidrule(lr){11-13} \cmidrule(lr){14-16}
+
+    Retrieval & Model & Row & P & R & F1 & P & R & F1 & & P & R & F1 & P & R & F1 \\
+
+    \midrule
+
+    \multirow{4}{*}{\shortstack[c]{\textbf{Oracle}\\ \textbf{abstract}}} &
+
+
+    Oracle rationale & 1 & 100.0 & 80.5 & 89.2 & 89.6 & 72.2 & 79.9 &  & 90.1 & 77.5 & 83.3 & 90.1 & 77.5 & 83.3 \\
+
+    \arrayrulecolor{black!30}\cmidrule(lr){2-16}
+
+ & Zero-shot & 2 & 42.5 & 45.1 & 43.8 & 36.1 & 38.4 & 37.2 &  & 86.9 & 53.6 & 66.3 & 67.9 & 41.9 & 51.8 \\
+
+ & \sysname & 3 & 76.1 & 63.8 & 69.4 & 66.5 & 55.7 & \textbf{60.6}          &  & 87.3 & 65.3 & 74.7 & 84.9 & 63.5 & \textbf{72.7}          \\
+
+\thickmid
+
+\multirow{4}{*}{\textbf{Open}} &
+
+Oracle rationale & 4 & 100.0 & 56.5 & 72.2 & 87.6 & 49.5 & 63.2 &  & 88.9 & 54.1 & 67.2 & 88.9 & 54.1 & 67.2 \\
+
+\arrayrulecolor{black!30}\cmidrule(lr){2-16}
+ & Zero-shot & 5 & 28.7 & 37.6 & 32.5 & 23.7 & 31.1 & 26.9 &  & 56.0 & 42.3 & 48.2 & 42.3 & 32.0 & 36.4 \\
+
+ & \sysname & 6 & 45.0 & 47.3 & 46.1 & 38.6 & 40.5 & \textbf{39.5}          &  & 47.5 & 47.3 & 47.4 & 46.6 & 46.4 & \textbf{46.5}          \\
+
+
+\arrayrulecolor{black}\bottomrule
+
+  \end{tabularx}
+
+  \caption{Test set performance on \ours, according to the metrics from \S\ref{sec:evaluation}. For the \emph{Oracle abstract} rows, the system is provided with gold evidence abstracts. ``Oracle rationale'' rows indicate that the gold rationales are provided as input. ``Zero-shot'' indicates zero-shot performance of a verification system trained on \fever. See Appendix \ref{sec:uncertainty} for standard deviations on all estimates, and dev set performance. }
+    \label{tbl:main_results}
+
+\end{table*}

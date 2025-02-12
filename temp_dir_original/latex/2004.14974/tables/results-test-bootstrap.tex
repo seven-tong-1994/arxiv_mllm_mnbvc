@@ -1,0 +1,82 @@
+\begin{table*}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.5em}
+
+
+  \begin{subtable}[h]{\linewidth}
+    \centering
+    \begin{tabularx}{0.8\linewidth}{*{3}{l} *{6}{c}}
+
+      \toprule
+
+      & & & \multicolumn{6}{c}{\textbf{Sentence-level}} \\
+      & & & \multicolumn{3}{c}{\textbf{Selection-Only}} & \multicolumn{3}{c}{\textbf{Selection+Label}} \\
+
+      \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+
+      Retrieval & Model & Row & P & R & F1 & P & R & F1 \\
+      \midrule
+      \multirow{4}{*}{\shortstack[c]{\textbf{Oracle} \\ \textbf{abstract}}} &
+      Oracle rationale & 1 & $100.0_{0.0}$ & $80.5_{3.3}$ & $89.2_{2.1}$ & $89.6_{2.7}$ & $72.2_{3.7}$ & $79.9_{3.0}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 2 & $42.6_{2.2}$ & $45.2_{3.2}$ & $43.8_{2.0}$ & $36.2_{2.5}$ & $38.4_{3.0}$ & $37.2_{2.3}$ \\
+      & \sysname & 3 & $76.2_{2.9}$ & $63.9_{3.6}$ & $69.4_{2.6}$ & $66.5_{3.4}$ & $55.7_{3.7}$ & $60.6_{3.1}$ \\
+
+      \thickmid
+
+      \multirow{4}{*}{\textbf{Open}} &
+      Oracle rationale               & 4 & $100.0_{0.0}$ & $56.6_{4.0}$ & $72.2_{3.3}$ & $87.6_{3.5}$ & $49.5_{3.9}$ & $63.2_{3.7}$ \\
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 5 & $28.7_{2.3}$ & $37.6_{3.4}$ & $32.5_{2.3}$ & $23.8_{2.3}$ & $31.1_{3.1}$ & $26.9_{2.3}$ \\
+      & \sysname & 6 & $45.0_{3.0}$ & $47.4_{3.8}$ & $46.1_{3.0}$ & $38.5_{3.0}$ & $40.6_{3.6}$ & $39.5_{3.0}$ \\
+
+    \end{tabularx}
+    \subcaption{Sentence-level results.}
+  \end{subtable}
+
+  \begin{subtable}[h]{\linewidth}
+    \centering
+    \begin{tabularx}{0.8\linewidth}{*{3}{l} *{6}{c}}
+
+      \toprule
+
+      &  &  & \multicolumn{6}{c}{\textbf{Abstract-level}} \\
+      &  &  & \multicolumn{3}{c}{\textbf{Label-Only}} & \multicolumn{3}{c}{\textbf{Label+Rationale}} \\
+
+      \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+
+      Retrieval & Model & Row & P & R & F1 & P & R & F1 \\
+
+      \midrule
+
+      \multirow{4}{*}{\shortstack[c]{\textbf{Oracle} \\ \textbf{abstract}}} &
+      Oracle rationale & 1 & $90.1_{2.2}$ & $77.5_{2.8}$ & $83.3_{2.4}$ & $90.1_{2.2}$ & $77.5_{2.8}$ & $83.3_{2.4}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+
+      & Zero-shot & 2 & $86.9_{2.9}$ & $53.6_{3.4}$ & $66.3_{3.1}$ & $67.9_{3.9}$ & $41.9_{3.2}$ & $51.8_{3.4}$ \\
+      & \sysname & 3 & $87.3_{2.6}$ & $65.3_{3.2}$ & $74.7_{2.8}$ & $84.9_{2.8}$ & $63.5_{3.2}$ & $72.6_{2.9}$ \\
+
+      \thickmid
+
+      \multirow{4}{*}{\textbf{Open}} &
+
+      Oracle rationale               & 4 & $88.9_{2.7}$ & $54.1_{3.5}$ & $67.2_{3.2}$ & $88.9_{2.7}$ & $54.1_{3.5}$ & $67.2_{3.2}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 5 & $56.0_{3.9}$ & $42.3_{3.4}$ & $48.2_{3.3}$ & $42.3_{4.0}$ & $32.0_{3.2}$ & $36.4_{3.3}$ \\
+      & \sysname & 6  &  $47.5_{3.3}$ & $47.3_{3.5}$ & $47.4_{3.1}$ & $46.6_{3.3}$ & $46.4_{3.5}$ & $46.4_{3.1}$ \\
+
+      \arrayrulecolor{black}\bottomrule
+
+    \end{tabularx}
+    \subcaption{Abstract-level results}
+  \end{subtable}
+
+  \caption{Test set results as in Table \ref{tbl:main_results}, reporting mean and standard deviation over 10,000 bootstrap samples. Standard deviations are reported as subscripts. Some means reported here are slightly different from Table \ref{tbl:main_results} due to sampling variability.}
+
+  \label{tbl:results_test_bootstrap}
+
+
+\end{table*}

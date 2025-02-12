@@ -1,0 +1,130 @@
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.6em}
+  \centering
+
+  \begin{tabularx}{\linewidth}{*{3}{c} *{3}{c}}
+    \toprule
+    & & & \multicolumn{3}{c}{\textbf{Fine-grained}} \\
+    \multicolumn{3}{c}{\textbf{Oracle component}} & \multicolumn{3}{c}{Threshold decoding} \\
+
+    \cmidrule(lr){4-6}
+
+    Abstract & Rationale & Label & P & R & F1 \\
+
+    \midrule
+
+           &  $\bullet$ &  $\bullet$ &          100.0 &        68.1 &    81.0 \\
+ $\bullet$ &            &  $\bullet$ &           75.1 &        75.7 &    75.4 \\
+ $\bullet$ &  $\bullet$ &            &           89.6 &        72.2 &    79.9 \\
+ 
+ \midrule
+ 
+ $\bullet$ &            &            &           66.5 &        55.7 &    60.6 \\
+           &  $\bullet$ &            &           87.6 &        49.5 &    63.2 \\
+           &            &  $\bullet$ &           73.5 &        54.6 &    62.6 \\
+           
+          \midrule 
+           
+           &            &            &           38.6 &        40.5 &    39.5 \\
+
+
+
+    \bottomrule
+
+  \end{tabularx}
+  \caption{Oracle ablations of individual pipeline components. In each row, components marked with a $\bullet$ are replaced by oracles. The first three lines show results with two oracles, isolating the performance of a single \sysname component. The next three show results with a single oracle. The last line shows the full \sysname system. \dw{Abstract retrieval, rationale selection, label prediction. Add coarse-grained too. Don't show decoding.}}
+  \label{tbl:pipeline_components}
+
+
+
+\end{table}
+
+
+
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.6em}
+  \centering
+
+  \begin{tabularx}{\linewidth}{ l*{3}{c}}
+    \toprule
+   & \multicolumn{3}{c}{\textbf{Fine-grained}} \\
+    % & \multicolumn{3}{c}{Threshold decoding} \\
+   \cmidrule(lr){4-6}  & P & R & F1 \\
+    \midrule 
+    \multicolumn{7}{c}{Oracle Experiments} \\
+      $\textsc{TFIDF}_{abst}$ + $\textsc{Oracle}_{Ratio,Label}$    &     100.0 &        68.1 &    81.0\\
+   $\sysname_{Ratio}$ + $\textsc{Oracle}_{ Abst, Label}$  &           75.1 &        75.7 &    75.4 \\
+   $\sysname_{Label} + \textsc{Oracle}_{Abst, Rational}$         &           89.6 &        72.2 &    79.9 \\
+    \midrule
+   \sysname_{ratio,Label}+\textsc{Oracle}_{Abst}   &           66.1 &        54.9 &    60.0 \\
+  \sysname_{ abst, Label}+\textsc{Oracle}_{Ratio}   &           86.0 &        38.1 &    52.8 \\
+  \sysname_{abst, Ratio}+\textsc{Oracle}_{Label} &           73.5 &        54.6 &    62.6 \\
+    \midrule
+   \multicolumn{7}{c}{Varying Training Datasets} \\
+    \sysname_{FEVER}  &           40.2 &        35.1 &    37.5 \\
+    \sysname_{UKP-SNOPES}  &           40.2 &        35.1 &    37.5 \\
+    \sysname  &           40.2 &        35.1 &    37.5 \\
+    \bottomrule
+    \multicolumn{7}{c}{Varying Decoding Strategies} \\
+    \sysname_{top-k}  &           40.2 &        35.1 &    37.5 \\
+    \sysname_{threshold}  &           40.2 &        35.1 &    37.5 \\
+   \sysname  &           40.2 &        35.1 &    37.5 \\
+    \bottomrule
+
+  \end{tabularx}
+  \caption{Oracle ablations of individual pipeline components. In each row, components marked with a $\bullet$ are replaced by oracles. The first three lines show results with two oracles, isolating the performance of a single \sysname component. The next three show results with a single oracle. The last line shows the full \sysname system. \dw{Abstract retrieval, rationale selection, label prediction. Add coarse-grained too. Don't show decoding.}}
+  \label{tbl:pipeline_components}
+
+
+
+\end{table}
+
+
+
+
+
+
+
+
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.6em}
+  \centering
+
+  \begin{tabular}{@{}lrrr}
+    \toprule
+   \multirow{2}{*}{Ablations} & \multicolumn{3}{c}{Fine-grained} \\
+    % & \multicolumn{3}{c}{Threshold decoding} \\
+   \cmidrule(lr){2-4}  & P & R & F1 \\
+    \midrule 
+    \multicolumn{3}{l}{\textit{Oracle components}} \\
+      \hspace{1em}\textsc{tfidf }$_{\mathrm{abst}}$  &     100.0 &        68.1 &    81.0\\
+   \hspace{1em}\sysname$_{\mathrm{rtnl}}$  &           75.1 &        75.7 &    75.4 \\
+   \hspace{1em}\sysname$_{\mathrm{label}}$         &           89.6 &        72.2 &    79.9 \\
+    \hdashline[0.2pt/0.4pt]
+   \hspace{1em}\sysname$_{\mathrm{rtnl,label}}$   &           66.1 &        54.9 &    60.0 \\
+  \hspace{1em}\sysname$_{\mathrm{abst, label}}$  &           86.0 &        38.1 &    52.8 \\
+  \hspace{1em}\sysname$_{\mathrm{abst, rtnl}}$ &           73.5 &        54.6 &    62.6 \\
+        
+    \hdashline[0.2pt/0.4pt]\noalign{\vskip 0.6ex}
+   \textit{Varying Training Datasets} \\
+    \hspace{1em}\sysname $_\mathrm{train\:on\: \fever}$  &           40.2 &        35.1 &    37.5 \\
+    \hspace{1em}\sysname $_\mathrm{train\:on\: \snopes}$  &           40.2 &        35.1 &    37.5 \\
+    \hspace{1em}\sysname $_\mathrm{train\:on\: \ours}$  &           40.2 &        35.1 &    37.5 \\
+        
+    \hdashline[0.2pt/0.4pt]\noalign{\vskip 0.6ex}
+    \textit{Varying Decoding Strategies} \\
+    \hspace{1em}\sysname$_{\mathrm{top-k}}$  &           40.2 &        35.1 &    37.5 \\
+    \hspace{1em}\sysname$_{\mathrm{threshold}}$  &           40.2 &        35.1 &    37.5 \\
+   \hspace{1em}\sysname  &           40.2 &        35.1 &    37.5 \\
+    \bottomrule
+
+  \end{tabular}
+  \caption{Oracle ablations of individual pipeline components. In each row, components marked with a $\bullet$ are replaced by oracles. The first three lines show results with two oracles, isolating the performance of a single \sysname component. The next three show results with a single oracle. The last line shows the full \sysname system. \dw{Abstract retrieval, rationale selection, label prediction. Add coarse-grained too. Don't show decoding.}}
+  \label{tbl:pipeline_components}
+
+
+
+\end{table}

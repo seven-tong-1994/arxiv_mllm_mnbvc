@@ -1,0 +1,162 @@
+latexml (LaTeXML version 0.8.8) processing temp_dir/latex/2004.14974/emnlp2020.tex
+(Digesting TeX emnlp2020...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/TeX.pool.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/eTeX.pool.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/pdfTeX.pool.ltxml... 0.00 sec) 0.06 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/emnlp2020.tex...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/LaTeX.pool.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/textcomp.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1enc.dfu... 0.01 sec) 0.58 sec) 0.68 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/article.cls.ltxml... 0.01 sec)
+Warning:missing_file:emnlp2020 Can't find binding for package emnlp2020
+	at emnlp2020.tex; line 17 col 11 - line 17 col 11
+	Anticipate undefined macros or environments
+	search paths are /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974, /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc
+	In Core::Definition::Constructor[\usepac... /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/LaTeX.pool.ltxml; line 879
+Info:dependencies:dependencies Loading dependencies for /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/emnlp2020.sty: hyperref,natbib,etoolbox,xcolor,caption
+	at emnlp2020.tex; line 17 col 11 - line 17 col 11
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/hyperref.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/ltxcmds.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty... 0.04 sec) 0.04 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/keyval.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty... 0.00 sec) 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/kvsetkeys.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty... 0.03 sec) 0.03 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/kvdefinekeys.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty... 0.01 sec) 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/kvoptions.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/kvoptions/kvoptions.sty... 0.06 sec) 0.06 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/nameref.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/refcount.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/infwarerr.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty... 0.02 sec) 0.02 sec) 0.04 sec) 0.05 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/gettitlestring.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty... 0.25 sec) 0.25 sec) 0.30 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/url.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/bitset.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/bitset/bitset.sty...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/intcalc.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/intcalc/intcalc.sty... 0.02 sec) 0.02 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/bigintcalc.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/pdftexcmds.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/iftex.sty.ltxml... 0.00 sec) 0.00 sec) 0.07 sec) 0.07 sec) 0.16 sec) 0.16 sec) 0.64 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/natbib.sty.ltxml... 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/etoolbox.sty.ltxml... 0.07 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/xcolor.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/color.sty.ltxml... 0.00 sec) 0.02 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/caption.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/times.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/latexsym.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/microtype.sty.ltxml... 0.00 sec)
+Error:undefined:\aclfinalcopy The token T_CS[\aclfinalcopy] is not defined.
+	at emnlp2020.tex; line 26 col 13 - line 26 col 13
+	Defining it now as <ltx:ERROR/>
+	Next token is T_CS[\par] ( == Core::Definition::Constructor[\par])
+	In Core::Gullet[@0x11f38c888] /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/emnlp2020.tex; from line 28 col 0 to line 28 col 1
+	 <= Core::Stomach[@0x11cfd84e0] <= ...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/subcaption.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/tabularx.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/array.sty.ltxml... 0.00 sec) 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/booktabs.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/graphicx.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/graphics.sty.ltxml... 0.00 sec) 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/enumitem.sty.ltxml... 0.00 sec)
+Warning:missing_file:csvsimple Can't find binding for package csvsimple
+	at emnlp2020.tex; line 42 col 11 - line 42 col 11
+	Anticipate undefined macros or environments
+	In Core::Definition::Constructor[\usepac... /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/LaTeX.pool.ltxml; line 879
+Info:dependencies:dependencies Loading dependencies for /usr/local/texlive/2024/texmf-dist/tex/latex/csvsimple/csvsimple.sty: csvsimple-\l__csvsim_package_expl_tl
+	at emnlp2020.tex; line 42 col 11 - line 42 col 11
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/dsfont.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/pifont.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsthm.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsgen.sty.ltxml... 0.00 sec) 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/algorithm2e.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/float.sty.ltxml... 0.00 sec)
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/ifthen.sty.ltxml...
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty... 0.01 sec) 0.01 sec)
+(Processing definitions /usr/local/texlive/2024/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/xspace.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/relsize.sty.ltxml... 0.00 sec) 0.37 sec) 0.38 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsmath.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsbsy.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amstext.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsopn.sty.ltxml... 0.00 sec) 0.03 sec)
+Warning:missing_file:arydshln Can't find binding for package arydshln
+	at emnlp2020.tex; line 49 col 11 - line 49 col 11
+	Anticipate undefined macros or environments
+	In Core::Definition::Constructor[\usepac... /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/LaTeX.pool.ltxml; line 879
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/multirow.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/colortbl.sty.ltxml... 0.01 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/multicol.sty.ltxml... 0.00 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amssymb.sty.ltxml...
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/amsfonts.sty.ltxml... 0.00 sec) 0.01 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/commands.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/gww-chars.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/00-abstract.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/01-introduction.tex...
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/teaser.tex... 0.03 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/covid-example.tex... 0.05 sec) 0.15 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/02-background-task-def.tex... 0.07 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/03-dataset.tex...
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/corpus.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/evidence-stats.tex... 0.09 sec) 0.23 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/04-task.tex... 0.07 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/05-model.tex... 0.09 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/06-experiments.tex...
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/components.tex... 0.06 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/main-results.tex... 0.09 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/error-analysis.tex...
+Error:undefined:\hdashline The token T_CS[\hdashline] is not defined.
+	at error-analysis.tex; line 11 col 14 - line 11 col 14
+	Defining it now as <ltx:ERROR/>
+	Next token is T_OTHER[[] ( == T_OTHER[[])
+	In Core::Gullet[@0x11f38c888] /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/error-analysis.tex; from line 11 col 15 to line 11 col 15
+	 <= Core::Definition::Constructor[\@start... <= Core::Stomach[@0x11cfd84e0] <= Core::Definition::Constructor[\@@tabu... <= ...
+ 0.05 sec) 0.40 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/07-related-work.tex... 0.07 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/08-conclusion.tex... 0.02 sec)
+Info:expected:emnlp2020 Couldn't find all bib files, using emnlp2020.bbl instead
+	at emnlp2020.tex; line 105 col 0 - line 105 col 24
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/emnlp2020.bbl... 0.34 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/09-appendices-arxiv.tex...
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/results-test-bootstrap.tex... 0.13 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/results-dev-bootstrap.tex... 0.14 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/claim.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/multiple-rationales.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/tables/journal-counts.tex... 0.04 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/mesh-terms.tex... 0.01 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/claim-interface.tex... 0.02 sec)
+(Processing content /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/temp_dir/latex/2004.14974/figures/evidence-interface.tex... 0.01 sec) 0.66 sec) 4.72 sec) 4.79 sec)
+(Building...
+(Loading compiled schema /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.00 sec)
+Info:unexpected:rowspan Rowspan 4 in cell(10,0) covers non-empty cells; truncating.to 3
+	at main-results.tex; line 1 col 0 - line 50 col 12
+Info:unexpected:rowspan Rowspan 4 in cell(8,0) covers non-empty cells; truncating.to 3
+	at results-test-bootstrap.tex; line 6 col 0 - line 36 col 16
+Info:unexpected:rowspan Rowspan 4 in cell(8,0) covers non-empty cells; truncating.to 3
+	at results-test-bootstrap.tex; line 38 col 0 - line 75 col 16
+Info:unexpected:rowspan Rowspan 4 in cell(8,0) covers non-empty cells; truncating.to 3
+	at results-dev-bootstrap.tex; line 6 col 0 - line 36 col 16
+Info:unexpected:rowspan Rowspan 4 in cell(8,0) covers non-empty cells; truncating.to 3
+	at results-dev-bootstrap.tex; line 38 col 0 - line 75 col 16
+ 2.56 sec)
+(Rewriting... 0.02 sec)
+(Math Parsing 255 formulae ......
+Warning:not_parsed:PUNCT.UNKNOWN.CLOSE>RELOP MathParser failed to match rule 'Anything'
+	at 04-task.tex; line 4 col 43 - line 4 col 55
+	In "$y(c,a)\in\{$"
+	y[[UNKNOWN]] ([[OPEN]] c[[UNKNOWN]] ,[[PUNCT]] a[[UNKNOWN]] )[[CLOSE]]
+	        > ∈[[RELOP]] \{[[OPEN]]
+ 0.43 sec)
+Math parsing succeeded:
+   ltx:XMArg: 227/227
+   ltx:XMath: 254/255
+Symbols assumed as simple identifiers (with # of occurences):
+   'A{caligraphic}' (1), 'E{caligraphic}' (3), 'R{caligraphic}' (1), 'R{italic}' (8), 'a{italic}' (43), 'c{italic}' (48), 'f{italic}' (2), 'h{italic}' (1), 'k{italic}' (2), 'n{italic}' (3), 'phi' (1), 'r{italic}' (2), 'sigma' (1), 't{italic}' (6), 'u{italic}' (2), 'w{italic}' (4), 'y{italic}' (5), 'z{italic}' (3)
+Set MATHPARSER_SPECULATE to speculate on possible notations.
+(Finalizing... 0.12 sec)
+Conversion complete: 4 warnings; 2 errors; 2 undefined macros[\hdashline, \aclfinalcopy]; 3 missing files[arydshln.sty, csvsimple.sty, emnlp2020.sty] (See /Users/peige/PycharmProjects/Arxiv_mllm_mnbvc/emnlp2020.latexml.log) (reqd. 8.05s)

@@ -1,0 +1,39 @@
+% Collection of random stuff we might want later.
+
+
+\klcomment{feels like appendix content}
+While estimating source trustworthiness has seen more attention in fake news identification \cite{baly-etal-2018-predicting}, some have shown it to also be useful in fact-checking, especially in web and social media domains \cite{Popat2017WhereTT,Nguyen2018AnIJ}.  Like \fever and \snopes, \ours does not explicitly handle this as our sources of documents are peer-reviewed academic journals.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \paragraph{Statistics}
+
+% \kyle{Stopped here;  Need more info about train-dev-test splits for full corpus not just claim-abstract pairs} \dw{The corpus isn't split.}
+
+% We divide the collection of claim-abstract pairs into standard train-dev-test splits.  
+% The label distribution is shown in Table \ref{tbl:claim_counts}. 
+% % \footnote{The test set is balanced, but the dev set is not; due to the smaller size of our dataset, we want to make sure our models have as many \refutes labels to train on as possible.} 
+
+% Some of these medical journals feature \emph{structured} abstracts, which are organized into sections focusing on background, methods, results, and conclusions. The majority of abstracts are \emph{unstructured}. As shown in Table \ref{tbl:dataset_overview}, structured abstracts are generally longer and more likely to contain multiple rationales. The majority of claims have evidence in just a single document. 
+
+% \input{tables/claim-counts.tex}
+
+% For detailed dataset statistics, see Appendix \ref{sec:corpus_stats}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Label agreement
+
+Treating the first annotator's label as gold and the second as a prediction, the label classification accuracy is \labelhumanacc. \kyle{what does this tell us that Cohen's doesn't?}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% BioMedSumm
+
+This represents a substantial improvement over the BioMedSumm citation contextualization dataset, for which the inter-annotator agreement in selection rationale sentences is 0.27 Fleiss' $\kappa$\footnote{BioMedSumm rationales are annotated at the span level; we convert to sentence-level }

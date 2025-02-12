@@ -1,0 +1,46 @@
+\begin{table}[t]
+  \setlength{\tabcolsep}{.25em}
+  \footnotesize
+  \centering
+
+%   \begin{subtable}[h]{\linewidth}
+%     \begin{tabular}{ r r r  }
+%       \toprule
+%       first & last & TF-IDF \\
+%       \midrule
+%       0.04  & 0.18 & 0.43   \\
+%     \end{tabular}
+%     \subcaption{Top-k selection \dw{Unigram + bigram, k=3}}
+
+%   \end{subtable}
+
+  \begin{subtable}[h]{\linewidth}
+    \begin{tabular}{ l  r r r r }
+      \toprule
+      Trained on    & \fever & Snopes & \ours         & \textsc{F + S} \\
+      \midrule
+      \scibert      & 0.54   & -      & 0.62          & 0.63           \\
+      \bioroberta   & 0.47   & -      & 0.63          & 0.63           \\
+      \robertabase  & 0.48   & -      & 0.63          & 0.62           \\
+      \robertalarge & 0.50   & 0.50   & \textbf{0.64} & 0.62           \\
+    \end{tabular}
+    \subcaption{Top-k selection}
+  \end{subtable}
+
+  \begin{subtable}[h]{\linewidth}
+    \begin{tabular}{ l  r r r  r}
+      \toprule
+                    & \fever & Snopes & \ours         & \textsc{F + S} \\
+      \midrule
+      \scibert      & 0.43   & -      & \textbf{0.76} & \textbf{0.76}  \\
+      \bioroberta   & 0.34   & -      & 0.74          & \textbf{0.76}  \\
+      \robertabase  & 0.31   & -      & 0.74          & 0.73           \\
+      \robertalarge & 0.34   & 0.42   & 0.74          & 0.72           \\
+    \end{tabular}
+    \subcaption{Threshold selection}
+  \end{subtable}
+
+  \caption{Sentence selection performance, measured by dev set F1. The rows of each table specify the transformer model. The columns specify the training procedure. \textsc{F + S} stands for \fever + \ours.}
+  \label{tbl:rationale_retrieval}
+
+\end{table}

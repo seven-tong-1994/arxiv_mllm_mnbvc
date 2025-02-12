@@ -1,0 +1,21 @@
+\begin{table}[t]
+  \setlength{\tabcolsep}{.25em}
+  \footnotesize
+  \centering
+
+  \begin{tabular}{L{0.12\linewidth} C{0.19\linewidth} C{0.19\linewidth} C{0.19\linewidth} C{0.15\linewidth}}
+    \toprule
+    Fold &  \supports &  \textsc{NEI} &  \refutes &   All \\
+    \midrule
+    Train &       332 &              304 &      173 &   809 \\
+    Dev   &       124 &              112 &       64 &   300 \\
+    Test  &       100 &              100 &      100 &   300 \\
+    \midrule
+    All   &       556 &              516 &      337 &  1409 \\
+    \bottomrule
+  \end{tabular}
+
+  \caption{Distribution of claim / cited abstract labels by train-dev-test split in \ours. \textsc{NEI} stands for \notenough.}
+  \label{tbl:claim_counts}
+  
+\end{table}

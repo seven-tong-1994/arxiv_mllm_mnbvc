@@ -1,0 +1,81 @@
+\begin{table*}[h!]
+  \footnotesize
+  \setlength{\tabcolsep}{0.5em}
+
+
+  \begin{subtable}[h]{\linewidth}
+    \centering
+    \begin{tabularx}{0.8\linewidth}{*{3}{l} *{6}{c}}
+
+      \toprule
+
+      & & & \multicolumn{6}{c}{\textbf{Sentence-level}} \\
+      & & & \multicolumn{3}{c}{\textbf{Selection-Only}} & \multicolumn{3}{c}{\textbf{Selection+Label}} \\
+
+      \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+
+      Retrieval & Model & Row & P & R & F1 & P & R & F1 \\
+      \midrule
+      \multirow{4}{*}{\shortstack[c]{\textbf{Oracle} \\ \textbf{abstract}}} &
+      Oracle rationale & 1 &   $100.0_{0.0}$ &       $81.9_{3.2}$ &       $90.0_{1.9}$ &   $91.4_{2.5}$ &   $74.9_{3.6}$ &   $82.3_{2.9}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 2 &  $40.7_{2.1}$ &       $48.1_{3.4}$ &       $44.0_{2.1}$ &   $36.1_{2.5}$ &   $42.6_{3.4}$ &   $39.0_{2.5}$ \\
+      & \sysname & 3 &  $79.4_{2.7}$ &       $59.0_{3.6}$ &       $67.7_{2.8}$ &   $71.4_{3.5}$ &   $53.0_{3.6}$ &   $60.8_{3.3}$ \\
+
+      \thickmid
+
+      \multirow{4}{*}{\textbf{Open}} &
+      Oracle rationale               & 4 &   $100.0_{0.0}$ &       $58.4_{4.3}$ &       $73.7_{3.4}$ &   $90.2_{3.3}$ &   $52.7_{4.3}$ &   $66.4_{3.9}$ \\
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 5 &   $28.6_{2.0}$ &       $38.5_{3.6}$ &       $32.8_{2.3}$ &   $24.8_{2.2}$ &   $33.4_{3.4}$ &   $28.4_{2.4}$ \\
+      & \sysname & 6 &       $52.5_{3.5}$ &       $43.8_{3.7}$ &       $47.7_{3.2}$ &   $46.9_{3.7}$ &   $39.2_{3.6}$ &   $42.6_{3.2}$ \\
+
+    \end{tabularx}
+    \subcaption{Sentence-level results.}
+  \end{subtable}
+
+  \begin{subtable}[h]{\linewidth}
+    \centering
+    \begin{tabularx}{0.8\linewidth}{*{3}{l} *{6}{c}}
+
+      \toprule
+
+      &  &  & \multicolumn{6}{c}{\textbf{Abstract-level}} \\
+      &  &  & \multicolumn{3}{c}{\textbf{Label-Only}} & \multicolumn{3}{c}{\textbf{Label+Rationale}} \\
+
+      \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+
+      Retrieval & Model & Row & P & R & F1 & P & R & F1 \\
+
+      \midrule
+
+      \multirow{4}{*}{\shortstack[c]{\textbf{Oracle} \\ \textbf{abstract}}} &
+      Oracle rationale & 1 &  $91.4_{2.2}$ &   $76.1_{3.0}$ &   $83.0_{2.5}$ &       $91.4_{2.2}$ &       $76.1_{3.0}$ &       $83.0_{2.5}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+
+      & Zero-shot & 2 &    $88.9_{2.8}$ &   $58.3_{3.7}$ &   $70.4_{3.2}$ &       $69.2_{3.9}$ &       $45.4_{3.5}$ &       $54.8_{3.5}$ \\
+      & \sysname & 3 &    $91.0_{2.3}$ &   $67.4_{3.3}$ &   $77.4_{2.7}$ &       $85.2_{2.9}$ &       $63.2_{3.5}$ &       $72.5_{3.1}$ \\
+
+      \thickmid
+
+      \multirow{4}{*}{\textbf{Open}} &
+
+      Oracle rationale               & 4 &    $91.0_{2.6}$ &   $53.1_{3.8}$ &   $67.0_{3.4}$ &       $91.0_{2.6}$ &       $53.1_{3.8}$ &       $67.0_{3.4}$ \\
+
+      \arrayrulecolor{black!30}\cmidrule(lr){2-9}
+      & Zero-shot & 5 &   $52.7_{3.7}$ &   $41.6_{3.7}$ &   $46.5_{3.4}$ &       $43.6_{3.7}$ &       $34.4_{3.5}$ &       $38.4_{3.3}$ \\
+      & \sysname & 6  &   $55.4_{3.7}$ &   $47.5_{3.6}$ &   $51.0_{3.3}$ &       $52.6_{3.7}$ &       $45.1_{3.6}$ &       $48.5_{3.3}$ \\
+
+      \arrayrulecolor{black}\bottomrule
+
+    \end{tabularx}
+    \subcaption{Abstract-level results}
+  \end{subtable}
+
+  \caption{Dev set results as in Table \ref{tbl:main_results}, reporting mean and standard deviation over 10,000 bootstrap samples.}
+
+  \label{tbl:results_dev_bootstrap}
+
+\end{table*}

@@ -1,0 +1,28 @@
+\section{Background and task definition}
+
+As illustrated in Figure \ref{fig:teaser}, scientific claim verification  is the task of identifying evidence from the research literature that \supports or \refutes a given scientific claim. Table \ref{tbl:covid_example} shows the results of our system  applied to claims about the novel coronavirus COVID-19. For each claim, the system identifies relevant scientific abstracts, and labels the relation of each abstract to the claim as either \supports or \refutes. Verifying scientific claims is challenging and requires domain-specific background knowledge -- for instance, in order to identify the evidence supporting Claim 1 in  Table~\ref{tbl:covid_example}, the system must determine that a reduction in coronavirus viral load indicates a favorable clinical response, even though this fact is never mentioned. %The highlighted sentences are excerpts from the relevant articles that serve as \emph{rationales} justifying these predicted relations.
+%As these claims are the subject of ongoing scientific investigation, they might be supported or refuted given different evidence documents.
+
+\vspace{.2cm}
+\noindent{\bf Scientific claims} \label{sec:claims} In \ours, a scientific claim is an \emph{atomic verifiable statement} expressing a finding about one aspect of a scientific entity or process, which can be verified from a single source.\footnote{Requiring annotators to search multiple sources increases cognitive burden and decreases annotation quality.}
+For instance,  ``\emph{The $R_0$ of the novel coronavirus is 2.5}'' is valid, but opinion-based statements like ``\emph{The government should require people to stand six feet apart to stop coronavirus}'' are not. Compound claims like ``\emph{Aerosolized coronavirus droplets can travel at least 6 feet and can remain in the air for 3 hours}'' should be split into two atomic claims. %While Claim 1 in Table \ref{tbl:covid_example} may appear to be a compound claim about two separate drugs (lopinavir and ritonavir), it is in fact atomic because ``lopinavir / ritonavir'' denotes a combination treatment using both medications.
+
+Claims in \ours  are \emph{natural} -- they are derived from citation sentences, or \emph{citances} \cite{Nakov2004CitancesC}, that occur naturally in scientific articles. This is similar to political fact-checking datasets such as \snopes \cite{Hanselowski2019ARA}, which use political fact-checking websites as a source of natural claims. On the other hand, claims in the popular \fever dataset \cite{Thorne2018FEVERAL} are \emph{synthetic}, since they are created by annotators by mutating sentences from the Wikipedia articles that will serve as evidence.
+
+%\dw{Citances \cite{Nakov2004CitancesC} are an ideal source for claims since they contain expert-written assertions about important findings reported in related research articles, and, unlike claims found on the web, they specify the documents where supporting evidence can be found.
+%}
+\vspace{.2cm}
+\noindent{\bf Supporting and refuting evidence} \label{sec:evidence}
+In most fact-checking work, claims are assigned a global supported or refuted label based on the entirety of the available evidence. For example in \fever, the claim ``\emph{Barack Obama was the $44^{th}$ President of the United States}'' can be verified as supported given Wikipedia as a corpus of evidence.
+
+While \ours claims are indeed verifiable assertions about scientific findings, accurately assigning a global truth label to a scientific claim (given a fixed scientific corpus) requires a systematic review by a team of experts. In this work we focus on the simpler task of assigning \supports or \refutes relations to individual \emph{claim-abstract pairs}.
+
+Each \supports or \refutes relation between claim and abstract must be justified by at least one \emph{rationale}. A rationale is a minimal collection of sentences which, taken together as premises in the context of the abstract, can reasonably be judged by a domain expert as implying the claim. Rationales facilitate the development of \emph{interpretable models} which not only have the ability to make label predictions, but can also identify the exact sentences that are necessary for their decisions.
+
+
+
+% In Claim 1 of Table \ref{tbl:covid_example}, the ``Supports'' rationale could be interpreted as providing stronger evidence than the ``Refutes'' rationale, since the former reports a new finding while the latter merely summarizes findings from other sources. In this work, we do not attempt to grade the strength of the evidence; this task is left to the human examining the outputs of the system.
+
+
+%\dw{Maybe add overall task definition here.}
+%Given a claim about a scientific finding and a corpus of abstracts from scientific research articles, the scientific fact-checking tasks is to: (1) retrieve the abstracts containing evidence supporting or refuting the claim, and (2) identify the specific sentences in each abstract that serve as evidence. These evidence sentences are referred to as \emph{rationales}, and are defined precisely in \S\ref{sec:task_definition}.

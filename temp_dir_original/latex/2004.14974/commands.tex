@@ -1,0 +1,197 @@
+\newcommand\BibTeX{B\textsc{ib}\TeX}
+
+\newcommand{\ours}{\textsc{SciFact}\xspace}
+\newcommand{\oursClosed}{$\ours_{\mathrm{closed}}$\xspace}
+\newcommand{\oursOpen}{$\ours_{\mathrm{open}}$\xspace}
+
+% System name
+\newcommand{\sysname}{\textsc{VeriSci}\xspace}
+
+
+\newcommand{\fever}{\textsc{Fever}\xspace}
+\newcommand{\eraser}{\textsc{ERASER}\xspace}
+\newcommand{\snopes}{UKP Snopes\xspace}
+
+\newcommand\dw[1]{{\color{blue}\{\textit{#1}\}$_{DW}$}}
+\newcommand\ac[1]{{\color{teal}\{\textit{#1}\}$_{AC}$}}
+\newcommand\kyle[1]{{\color{orange}\{\textit{#1}\}$_{kyle}$}}
+\newcommand\klcomment[1]{{\color{orange}\{\textit{#1}\}$_{kyle}$}}
+\newcommand\lucy[1]{{\color{purple}\{\textit{#1}\}$_{lucy}$}}
+\newcommand{\hanna}[1]{\textcolor{cyan}{[#1]}}
+\newcommand\peter[1]{{\color{purple}\{\textit{#1}\}$_{peter}$}}
+
+
+\newcommand\todoit[1]{{\color{red}\{TODO: \textit{#1}\}}\xspace}
+\newcommand\todo{{\color{red}{TODO}}\xspace}
+\newcommand\needcite{{\color{red}{CITE}}\xspace}
+
+\newcommand{\supported}{\textsc{Supported}\xspace}
+\newcommand{\refuted}{\textsc{Refuted}\xspace}
+
+% Easier to do supports / refutes instead of supported / refuted
+\newcommand{\supports}{\textsc{Supports}\xspace}
+\newcommand{\refutes}{\textsc{Refutes}\xspace}
+% \newcommand{\notenough}{\textsc{NotEnoughInfo}\xspace}
+\newcommand{\notenough}{\textsc{NoInfo}\xspace}
+
+\newcommand{\psupports}{\textsc{PartiallySupports}\xspace}
+\newcommand{\prefutes}{\textsc{PartiallyRefutes}\xspace}
+\newcommand{\ppartial}{\textsc{Partial}\xspace}
+
+\newcommand{\support}{\textsc{Support}\xspace}
+\newcommand{\refute}{\textsc{Refute}\xspace}
+
+
+
+% Stance / entailment
+\newcommand{\entailment}{entailment\xspace}
+\newcommand{\Entailment}{Entailment\xspace}
+
+% URL placeholder
+\newcommand{\webpage}{\url{www.placeholder.com}}
+
+% Dataset counts
+\newcommand{\numclaims}{1,409\xspace}
+\newcommand{\numpapers}{5,183\xspace}
+\newcommand{\numevidence}{486\xspace}
+\newcommand{\numcitednoevidence}{255\xspace}
+
+% Coarse-grained agreement stats.
+\newcommand{\labelkappa}{0.75\xspace} % Cohen's kappa for label agreement.
+\newcommand{\labelhumanacc}{0.83\xspace} % Human-human label accuracy.
+\newcommand{\rationalekappaagree}{0.71\xspace} % Rationale Cohen's kappa given label agreement.
+\newcommand{\rationalekappaoverall}{0.63\xspace} % Rationale Cohen's kappa overall.
+\newcommand{\rationalekappabackground}{0.45\xspace} % Rationale for background sentences.
+\newcommand{\foneagree}{0.75\xspace}              % Human-huamn F1 given label agreement.
+\newcommand{\foneoverall}{0.67\xspace}           % Human-human F1 overall.
+\newcommand{\nagreement}{232\xspace}              % Number of claims annotated for coarse-grained agreement.
+
+% Fine-grained agreement stats.
+\newcommand{\labelkappafine}{0.48\xspace} % Cohen's kappa for fine-grained label.
+\newcommand{\nagreementfine}{224\xspace}              % Number of claims annotated for coarse-grained agreement.
+
+
+% Modeling performance
+\newcommand{\bestpipeline}{0.47\xspace}
+
+
+% Support levels.
+\newcommand{\sfull}{\textsc{FullSupport}\xspace}
+\newcommand{\spart}{\textsc{PartialSupport}\xspace}
+\newcommand{\rfull}{\textsc{FullRefute}\xspace}
+\newcommand{\rpart}{\textsc{PartialRefute}\xspace}
+
+\newcommand{\scoarse}{\textsc{Support}\xspace}
+\newcommand{\rcoarse}{\textsc{Refute}\xspace}
+
+\newcommand{\primary}{\textsc{Primary}\xspace}
+\newcommand{\supplemental}{\textsc{Supplemental}\xspace}
+
+% Models
+\newcommand{\bert}{\textsc{BERT}\xspace}
+\newcommand{\scibert}{\textsc{SciBERT}\xspace}
+\newcommand{\roberta}{RoBERTa\xspace}
+\newcommand{\bioroberta}{BioMedRoBERTa\xspace }
+\newcommand{\robertabase}{RoBERTa-base\xspace}
+\newcommand{\robertalarge}{RoBERTa-large\xspace}
+
+\newcommand{\softmax}{\textsc{SoftMax}}
+\newcommand{\sigmoid}{\textsc{Sigmoid}}
+
+% BERT components
+\newcommand{\cls}{\textsc{CLS}\xspace}
+\newcommand{\sep}{\textsc{SEP}\xspace}
+
+
+\newcommand{\multistage}{\textsc{Multistage}\xspace}
+
+
+\newcommand{\multinli}{\textsc{MultiNLI}\xspace}
+\newcommand{\zeroshot}{\textsc{ZeroShot}\xspace}
+
+\newcommand{\nse}{\textsc{NoScoreEv}\xspace}
+\newcommand{\se}{\textsc{ScoreEv}\xspace}
+
+
+% Subsets of the corpus
+\newcommand{\Dcited}{\cD_{\mathrm{cited}}}
+\newcommand{\Dseed}{\cD_{\mathrm{seed}}}
+\newcommand{\Ddecoy}{\cD_{\mathrm{decoy}}}
+\newcommand{\dcited}{\bd_{\mathrm{cited}}}
+\newcommand{\dseed}{\bd_{\mathrm{seed}}}
+\newcommand{\dciting}{\bd_{\mathrm{citing}}}
+\newcommand{\sciting}{\bs_{\mathrm{citing}}}
+
+
+% negation anecdotes
+\newcommand{\fracSupportIncrease}{9\% \xspace}
+\newcommand{\fracSupportReduce}{5\% \xspace}
+\newcommand{\fracRefuteIncrease}{12\% \xspace}
+\newcommand{\fracRefuteReduce}{6\% \xspace}
+
+% FEVER classification
+\newcommand{\bestFeverRetrieval}{0.80 \xspace}
+\newcommand{\bestFeverEntailment}{0.90 \xspace}
+
+\newcommand{\feverPaperEntailment}{0.88 \xspace}
+
+% Math
+\newcommand{\yhat}{\widehat{y}}
+\newcommand{\rhat}{\widehat{r}}
+\newcommand{\Rhat}{\widehat{R}}
+\newcommand{\Shat}{\widehat{S}}
+\newcommand{\shat}{\widehat{s}}
+\newcommand{\rstar}{r^*}
+\newcommand{\Sstar}{S^*}
+\newcommand{\Ehat}{\widehat{\cE}}
+\newcommand{\Estar}{\cE^*}
+\newcommand{\ahat}{\widehat{a}}
+
+% Colors and check marks
+\definecolor{NiceGreen}{RGB}{125,204,110}
+\definecolor{NiceRed}{RGB}{222,0,0}
+\definecolor{c1}{rgb}{0.12, 0.46, 0.70}
+\definecolor{c2}{rgb}{1.0, 0.50, 0.05}
+\definecolor{c3}{rgb}{0.17,0.63,0.17}
+
+\newcommand{\cmark}{{\color{NiceGreen} \ding{51}}} % Green check mark.
+\newcommand{\xmark}{{\color{NiceRed} \ding{55}}}  % Red x.
+
+\newcommand{\best}{\textsc{Best}\xspace}
+
+% F1
+\newcommand{\fonecoarse}{$F1_{\textrm{abstract}}$\xspace}
+\newcommand{\foneAbstLab}{$F1_{\textsc{A,L}}$\xspace}
+\newcommand{\foneAbstRat}{$F1_{\textrm{A,R}}$\xspace}
+\newcommand{\fonefine}{$F1_{\textrm{sentence}}$\xspace}
+\newcommand{\foneRatSel}{$F1_{\textrm{R,S}}$\xspace}
+\newcommand{\foneRatLab}{$F1_{\textrm{R,L}}$\xspace}
+
+\newcommand{\abstractLabelOnly}{$\textrm{Abstract}_{\textrm{Label-Only}}$\xspace}
+\newcommand{\abstractLabelRationale}{$\textrm{Abstract}_{\textrm{Label+Rationale}}$\xspace}
+\newcommand{\sentenceSelectionOnly}{$\textrm{Sentence}_{\textrm{Selection-Only}}$\xspace}
+\newcommand{\sentenceSelectionLabel}{$\textrm{Sentence}_{\textrm{Selection+Label}}$\xspace}
+
+
+
+% Website
+\newcommand{\website}{\url{https://github.com/allenai/scifact}}
+
+% Model component abbreviations
+\newcommand{\abst}{\textrm{abst}\xspace}
+\newcommand{\rtnl}{\textrm{rtnl}\xspace}
+\newcommand{\lbl}{\textrm{lbl}\xspace}
+
+
+% Pipeline components
+\newcommand{\componentone}{\textsc{AbstractRetrieval}\xspace}
+\newcommand{\componenttwo}{\textsc{RationaleSelection}\xspace}
+\newcommand{\componentthree}{\textsc{LabelPrediction}\xspace}
+
+% Table commands
+\newcommand{\thinmid}{\arrayrulecolor{black!30}\midrule}
+\newcommand{\thickmid}{\arrayrulecolor{black}\midrule}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}

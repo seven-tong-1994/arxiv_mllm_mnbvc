@@ -1,0 +1,26 @@
+\section{\sysname: Baseline model} \label{sec:baselines}
+We develop a baseline (referred to as \sysname) that takes a claim $c$ and corpus $\cA$ as input, identifies evidence abstracts $\Ehat(c)$, and predicts a label $\yhat(c,a)$ and rationale sentences $\Shat(c, a)$ for each $a \in \Ehat(c)$.  Following the ``\bert-to-\bert''  model presented in \citet{DeYoung2019ERASERAB,Soleimani2019BERTFE}, \sysname\ is a pipeline of three components:
+
+\begin{enumerate}[leftmargin=*]
+    \item \componentone retrieves $k$ abstracts with highest TF-IDF similarity to the claim.
+    \item \componenttwo identifies rationale sentences $\Shat(c, a)$ for each abstract.
+    \item \componentthree makes the final label prediction $\yhat(c, a)$.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\vspace{.2cm} \noindent {\bf Rationale selection} \label{sec:rationale_selection}
+Given a claim $c$ and abstract $a$, we train a model to predict $z_i \triangleq \mathds{1}[a_i \textrm{ is a rationale sentence}]$ for each sentence $a_i$ in $a$. For each sentence, we encode the concatenated sequence $w_i = [a_i, \sep, c]$ using a \bert-style language model and predict a score $\tilde{z}_i = \sigma[f(\cls(w_i))]$, where $\sigma$ is the sigmoid function, $f$ is a linear layer and $\cls(w_i)$ is the \cls token from the encoding of $w_i$. We minimize cross-entropy loss between $z_i$ and $\tilde{z}_i$ during training. We train the model on pairs of claims and their cited abstracts. For each claim, we use cited abstracts labeled \notenough, as well as non-rationale sentences from abstracts labeled \supports and \refutes as negative examples. To make predictions, we select all sentences $a_i$ with $\tilde{z_i} > t$ as rationale sentences, where $t \in [0, 1]$ is tuned on the dev set (Appendix \ref{sec:parameters}).
+
+% TODO(dwadden) Make an algorithm box or figure instead of writing.
+
+%%%%%%%%%%%%%%%%%%%%
+
+\vspace{.2cm} \noindent {\bf Label prediction} \label{sec:entailment}
+Sentences identified by the rationale selector are passed to a separate \bert-based model to make the final
+% \supports / \refutes / \notenough
+labeling decision. Given a claim $c$ and abstract $a$, we concatenate the claim and the predicted rationale sentences $u = [\shat_1(c, a), \dots \shat_{\ell}(c, a), \sep, c]$\footnote{We truncate the rationale input if it exceeds the \bert token limit. $c$ is never truncated.}, and predict $\tilde{y}(c, a) = \phi[f(\cls(u))]$, where $\phi$ is the softmax function, and $f$ is a linear layer with three outputs representing the \{\supports, \refutes, \notenough\} labels. We minimize the cross-entropy loss between $\tilde{y}(c, a)$ and the true label $y(c, a)$.
+
+We train the model on pairs of claims and their cited abstracts using gold rationales as input. For cited abstracts labeled \notenough, we choose the $k$ sentences from the cited abstract with highest TF-IDF similarity to the claim as input rationales. For prediction, we use the predicted rationale sentences $\Shat(c, a)$ as input and predict $\hat{y}(c, a) = \textrm{argmax }\tilde{y}(c, a)$. \notenough is predicted for abstracts with no rationale sentences.
+
+We experimented with a label prediction model which encodes entire abstracts via the Longformer \cite{Beltagy2020LongformerTL}, and makes predictions using the document-level \cls token. Performance was not competitive with our pipeline setup, likely because the label predictor struggles to identify relevant information when given full abstracts.

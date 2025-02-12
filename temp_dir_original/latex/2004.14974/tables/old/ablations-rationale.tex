@@ -1,0 +1,50 @@
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.4em}
+  \centering
+
+
+  \begin{subtable}[h]{\linewidth}
+    \begin{tabularx}{\columnwidth}{l *{3}{c}  *{3}{c}}
+      \toprule
+ & \multicolumn{3}{c}{\textbf{Top-$k$}} & \multicolumn{3}{c}{\textbf{Threshold}} \\
+      \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+ & P & R & F1 & P & R & F1 \\
+      \midrule
+      \scibert      &       47.0 &    80.6 & 59.4 &       74.5 &    74.3 & 74.4 \\
+      \bioroberta   &       47.8 &    82.0 & 60.4 &       75.3 &    69.9 & 72.5 \\
+      \robertabase  &       47.5 &    81.4 & 60.0 &       76.1 &    66.1 & 70.8 \\
+      \robertalarge &       48.8 &    83.6 & 61.6 &       73.7 &    70.5 & 72.1 \\
+      \bottomrule
+    \end{tabularx}
+    \subcaption{Comparison of different \bert variants for rationale selection. All models trained on \ours.}
+    \label{tbl:ablations_rationale_bert}
+  \end{subtable}
+
+
+  \begin{subtable}[h]{\linewidth}
+    \begin{tabularx}{\columnwidth}{l *{3}{c}  *{3}{c}}
+      \toprule
+      & \multicolumn{3}{c}{\textbf{Top-$k$}} & \multicolumn{3}{c}{\textbf{Threshold}} \\
+      \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+      & P & R & F1 & P & R & F1 \\
+      \midrule
+
+      \fever        &       37.6 &    64.5 & 47.5 &       65.9 &    22.1 & 33.1 \\
+      \snopes       &       38.0 &    65.0 & 47.9 &       26.7 &    87.7 & 40.9 \\
+      \ours         &       48.8 &    83.6 & 61.6 &       73.7 &    70.5 & 72.1 \\
+      \fever + \ours &       47.5 &    81.4 & 60.0 &       72.4 &    67.2 & 69.7 \\
+
+      \bottomrule
+    \end{tabularx}
+    \subcaption{Comparison of \robertalarge trained on different training datasets for rationale selection.}
+    \label{tbl:ablations_rationale_dataset}
+  \end{subtable}
+
+  \caption{Comparison of training procedures and \bert modules on rationale selection.}
+
+  \label{tbl:ablations_rationale}
+
+\end{table}

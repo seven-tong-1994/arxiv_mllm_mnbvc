@@ -1,0 +1,41 @@
+\begin{table}[t]
+  \footnotesize
+  \setlength{\tabcolsep}{0.4em}
+  \centering
+
+  \begin{subtable}{0.45\linewidth}
+    \centering
+    \begin{tabularx}{\columnwidth}{l r}
+      \toprule
+      \multicolumn{2}{r}{Label accuracy} \\
+      \midrule
+      \scibert   & 74.3 \\
+      \bioroberta   & 76.3 \\
+      \robertabase   & 72.3 \\
+      \robertalarge   & 81.3 \\
+      \bottomrule
+    \end{tabularx}
+    \subcaption{Entailment label accuracy of \bert variants.}
+    \label{tbl:ablations_entailment_bert}
+  \end{subtable}
+  \hspace{0.2em}
+  \begin{subtable}{0.45\linewidth}
+    \centering
+    \begin{tabularx}{\columnwidth}{l r}
+      \toprule
+      \multicolumn{2}{r}{Label accuracy} \\
+      \midrule
+      \fever   & 68.0 \\
+      \snopes   & 71.7 \\
+      \ours   & 76.7 \\
+      \fever + \ours   & 81.3 \\
+      \bottomrule
+    \end{tabularx}
+    \subcaption{\robertalarge trained on four different datasets.}
+    \label{tbl:ablations_entailment_dataset}
+  \end{subtable}
+
+  \caption{Comparison of training procedures and \bert modules on entailment labeling.}
+  \label{tbl:ablations_entailment}
+
+\end{table}

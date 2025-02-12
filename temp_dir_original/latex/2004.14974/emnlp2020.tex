@@ -1,0 +1,113 @@
+%
+% File emnlp2020.tex
+%
+%% Based on the style files for ACL 2020, which were
+%% Based on the style files for ACL 2018, NAACL 2018/19, which were
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% based on ACL-2013, ACL-2012, ACL-2011, ACL-2010, ACL-IJCNLP-2009,
+%% EACL-2009, IJCNLP-2008...
+%% Based on the style files for EACL 2006 by
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{emnlp2020}
+\usepackage{times}
+\usepackage{latexsym}
+\renewcommand{\UrlFont}{\ttfamily\small}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+\aclfinalcopy % Uncomment this line for the final submission
+% \def\aclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\renewcommand{\UrlFont}{\ttfamily\small}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{csvsimple}
+\usepackage{dsfont}
+\usepackage{pifont}
+\usepackage{amsthm}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{arydshln}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{amssymb}
+
+% Shorten the spacing around section and subsection headings
+% \usepackage{titlesec}
+% \titlespacing{\section}{12pc}{1.1ex plus .1ex minus .2ex}{1.1ex plus .1ex minus .2ex}
+% \titlespacing{\subsection}{12pc}{0.8ex plus .1ex minus .2ex}{0.8ex plus .1ex minus .2ex}
+% \titlespacing{\paragraph}{0pt}{0.5ex plus .1ex minus .2ex}{1ex plus .1ex minus .2ex}
+
+
+% No sep in lists.
+\setlist{nolistsep}
+
+
+\input{commands.tex}
+\input{gww-chars.tex}
+
+\title{Fact or Fiction: Verifying Scientific Claims}
+
+\author{David Wadden$^\mathbf{\dagger}$\thanks{\xspace \xspace Work performed during internship with the Allen Institute for Artificial Intelligence} \quad
+Shanchuan Lin$^\mathbf{\dagger}$ \quad
+Kyle Lo$^\mathbf{\ddagger}$ \quad
+Lucy Lu Wang$^\mathbf{\ddagger}$ \\
+{\bf Madeleine van Zuylen}$^\mathbf{\ddagger}$ \quad
+{\bf Arman Cohan}$^\mathbf{\ddagger}$ \quad
+{\bf Hannaneh Hajishirzi}$^\mathbf{\dagger\ddagger}$\\
+  $^\mathbf{\dagger}$
+  University of Washington, Seattle, WA, USA \\
+  $^\mathbf{\ddagger}$
+  Allen Institute for Artificial Intelligence, Seattle, WA, USA \\
+  {\tt\small \{dwadden,linsh,hannaneh\}@cs.washington.edu} \\
+  {\tt\small \{kylel,lucyw,madeleinev,armanc\}@allenai.org}
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\input{00-abstract.tex}
+\input{01-introduction.tex}
+\input{02-background-task-def.tex}
+\input{03-dataset.tex}
+\input{04-task.tex}
+\input{05-model.tex}
+\input{06-experiments.tex}
+\input{07-related-work.tex}
+\input{08-conclusion.tex}
+
+% \section*{Acknowledgments}
+
+\bibliography{emnlp2020}
+\bibliographystyle{acl_natbib}
+
+% For the arXiv version, don't include the whole annotation guide.
+% \input{09-appendices.tex}
+\input{09-appendices-arxiv.tex}
+
+
+\end{document}
