@@ -1,8 +1,0 @@
-# images info, 1=ps, 2=eps, 4=epsi, 8=epsf, 16=pdf, 32=png, 64=gif
-see_image("figures/teaser-fig",0,1);
-see_image("figures/corpus-fig",0,1);
-see_image("figures/claim-fig",0,1);
-see_image("figures/multiple-rationales-fig",0,1);
-see_image("figures/mesh-terms-fig",0,1);
-see_image("figures/claim-interface-fig",0,1);
-see_image("figures/evidence-interface-fig",0,1);
