@@ -129,6 +129,7 @@ def normalize(path, out_dir, write_logs=True):
     if main_tex_path is None:
         log(('couldn\'t find main tex file in dump archive {}'
              '').format(fn))
+        return None
 
     # flatten to single tex file and save
     with tempfile.TemporaryDirectory() as tmp_dir_path:

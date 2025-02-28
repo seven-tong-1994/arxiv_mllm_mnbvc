@@ -14,8 +14,11 @@ def get_abstract(dict_data, title, authors):
     if len(title) == 0 and len(authors) == 0:
         preffix = abstract_full.split('\n\n')[0].splitlines()
         abstract_full = '\n\n'.join(abstract_full.split('\n\n')[1:])
-        title = preffix[0]
-        authors = '\n'.join(preffix[1:])
+        title = ''
+        authors = ''
+        if len(preffix) > 0:
+            title = preffix[0]
+            authors = '\n'.join(preffix[1:])
     return abstract_full, title, authors
 
 
@@ -106,7 +109,6 @@ def normal_reference(dict_data, text):
         if ref_id.startswith('FIGREF'):  # 图像处理
             figure_index = ref_entry['num']
 
-            print(ref_entry)
             img_lists = [f'\n\n[BEGIN_FIGURE_PLACEHOLDER]{json.dumps(ref_entry, ensure_ascii=False)}[END_FIGURE_PLACEHOLDER]\n\n']
             img_string = '\n\n'.join(img_lists)
             line_index = text.find(ref_id)
@@ -145,8 +147,11 @@ def normal_reference(dict_data, text):
             while parent:
                 section_num.append(dict_data[parent]["num"])
                 parent = dict_data[parent]['parent']
-            section_name = ".".join(section_num[::-1])
-            text = text.replace(f' {ref_id} ', f' {section_name} ')
+            if None not in section_num:
+                section_name = ".".join(section_num[::-1])
+                text = text.replace(f' {ref_id} ', f' {section_name} ')
+            else:
+                text = text.replace(f' {ref_id} ', f' ')
     return text, footnote
 
 def addition_reference(text, bibgraphy, footnote):
@@ -172,7 +177,8 @@ def convert_json_to_markdown(json_data):
     body_text = get_body(json_data['latex_parse']['body_text'], is_format=True)  # 是否保留标题的 ## 结构
     text = f'** {title} **\n\n'
     text += f'{authors} \n\n'
-    text += f'Abstract \n\n {abstract} \n\n'
+    text += f'\n\n{abstract} \n\n'
+    # text += f'Abstract \n\n {abstract} \n\n'
     text += body_text
     text, bibgraphy = normal_bibgraphy(json_data['latex_parse']['bib_entries'], text)
     text, footnote = normal_reference(json_data['latex_parse']['ref_entries'], text)

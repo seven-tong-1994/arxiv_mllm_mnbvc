@@ -56,7 +56,6 @@ def main():
         block.from_dict(row)
 
         if block.category == 'figure':
-            print(type(block.image_data.encode('utf-8')))
             bytes_to_img(block.image_data.encode('utf-8'), Path(f"outputs/demo_{block.block_id}.png"))
 
 

@@ -1093,6 +1093,8 @@ def extract_table_html(table: BeautifulSoup) -> List:
 
 
 def normalize_html(sp: BeautifulSoup) -> BeautifulSoup:
+    if sp is None:
+        return sp
     for row in sp.find_all('tr'):
         for col in row.find_all(['th', 'td']):
             math_tag = col.find('math')
@@ -1114,45 +1116,48 @@ from lxml import html
 import html as ht
 def get_table_map_from_html(sp: BeautifulSoup, ref_id_map: dict, keep_table_contents=True) -> Dict:
     table_map = dict()
+    num = 0
     for flt in sp.find_all('figure'):
         if sv.match("figure.ltx_table", flt):
             content = extract_table_html(flt) if keep_table_contents else None
-            if flt.get('id') and flt.get('id').count('.') == 1:
-                table = flt.find('table')
-                talbe_figcaptions = []
-                for table_caption in flt.find_all('figcaption'):
-                    text_items = []
-                    for cell in table_caption:
-                        if type(cell) == NavigableString:
-                            text_items.append(str(cell))
-                        elif cell.name == 'math':
-                            all_texts = cell.find_all(text=True)
-                            text_items.append(' '.join(all_texts))
-                        else:
-                            text_items.append(cell.text)
-                    talbe_figcaptions.append(''.join(text_items))
-                table = normalize_html(table)
-                cells = flt.find_all(['td', 'th', 'thead', 'tbody', 'tr', 'table'])
-                for cell in cells:
-                    attrs = cell.attrs
-                    attrs = {k: v for k, v in attrs.items() if k in ['colspan', 'rowspan']}
-                    cell.attrs = attrs
-                html = str(table)
+            # if flt.get('id') and flt.get('id').count('.') == 1:  # 会漏
+            table = flt.find('table')
+            talbe_figcaptions = []
+            for table_caption in flt.find_all('figcaption'):
+                text_items = []
+                for cell in table_caption:
+                    if type(cell) == NavigableString:
+                        text_items.append(str(cell))
+                    elif cell.name == 'math':
+                        all_texts = cell.find_all(text=True)
+                        text_items.append(' '.join(all_texts))
+                    else:
+                        text_items.append(cell.text)
+                talbe_figcaptions.append(''.join(text_items))
+            table = normalize_html(table)
+            cells = flt.find_all(['td', 'th', 'thead', 'tbody', 'tr', 'table'])
+            for cell in cells:
+                attrs = cell.attrs
+                attrs = {k: v for k, v in attrs.items() if k in ['colspan', 'rowspan']}
+                cell.attrs = attrs
+            html = str(table)
 
-                # html = convert_table_to_html(content) if keep_table_contents else None
-                try:
-                    num = re.search('\.T(\d{1,})', flt.get('id')).group(1)
-                    ref_id = ref_id_map[num]
+            # html = convert_table_to_html(content) if keep_table_contents else None
+            try:
+                # num = re.search('\.T(\d{1,})', flt.get('id')).group(1)
+                num += 1
+                if ref_id_map.get(str(num)):
+                    ref_id = ref_id_map[str(num)]
                     table_map[ref_id] = {
-                        "num": num,
+                        "num": str(num),
                         "text": '\n'.join(talbe_figcaptions),   # placeholder
                         "content": content,
                         "html": html,
                         "ref_id": ref_id
                     }
-                except AttributeError:
-                    print('Attribute error with table: ', flt.name)
-                    continue
+            except AttributeError:
+                print('Attribute error with table: ', flt.name)
+                continue
     return table_map
 
 
@@ -1434,7 +1439,7 @@ def process_div(tag: bs4.element.Tag, secs: List, sp: BeautifulSoup, bib_map: Di
                 body_text += process_div(el, el_sec_list, sp, bib_map, ref_map)
     # unknown tag type, skip for now
     else:
-        print(f'Unknown tag type: {tag.name}')
+        # print(f'Unknown tag type: {tag.name}')
         return []
 
     return body_text
@@ -1475,6 +1480,7 @@ def get_table_list_from_tex(tex_file, table_map):
     table_lists = []
     for table in re.finditer(r'\\begin\{(tab.*?)}(.*?)\\end\{\1}', tex_code, re.DOTALL):
         table_lists.append(table.group())
+
     assert len(table_lists) == len(table_map)
     for i, (key, value) in enumerate(table_map.items()):
         table_map[key]['latex'] = table_lists[i]
@@ -1527,10 +1533,14 @@ def convert_xml_to_s2orc(
     figure_map = get_figure_map_from_tex(xml_sp, latex_dir)
 
     # get table_map
-
     table_dict = get_table_map_from_text(xml_sp)  # 根据xml结构提取表格信息，问题很多
     table_map = get_table_map_from_html(html_sp, table_dict)
-    table_map = get_table_list_from_tex(os.path.join(temp_dir, 'norm', file_id, file_id + '.tex'), table_map)
+    try:
+        # 补 latex代码，如果出错只保留markdown数据
+        table_map = get_table_list_from_tex(os.path.join(temp_dir, 'norm', file_id, file_id + '.tex'), table_map)
+    except Exception as e:
+        logger.info('err: [%s]' % e)
+
 
     # combine references in one dict
     refkey_map = combine_ref_maps(equation_map, figure_map, table_map, footnote_map, section_map)

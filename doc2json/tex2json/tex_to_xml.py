@@ -131,6 +131,7 @@ def normalize_latex(latex_dir: str, norm_dir: str, norm_log_file: str, cleanup=T
         return None
     norm_output_folder = os.path.join(norm_dir, file_id)
     os.makedirs(norm_output_folder, exist_ok=True)
+
     try:
         main_tex_fn = normalize(latex_dir, norm_output_folder)
     except TypeError:
@@ -172,7 +173,6 @@ def norm_latex_to_xml(norm_dir: str, xml_dir: str, xml_err_file: str, xml_log_fi
     # delete norm directory if cleanup
     if cleanup:
         shutil.rmtree(norm_dir)
-
     if os.path.exists(xml_file):
         return xml_file
 
@@ -203,6 +203,8 @@ def convert_latex_to_xml(
     html_error_file = os.path.join(log_dir, 'html_error.log')
     html_log_file = os.path.join(log_dir, 'html_skip.log')
     xml_output_file = norm_latex_to_xml(norm_output_dir, xml_dir, xml_error_file, xml_log_file, cleanup)
+    if xml_output_file is None:
+        return None, None, None
     html_output_file = norm_latex_to_html(main_tex_fn, html_dir, html_error_file, html_log_file)
     return xml_output_file, html_output_file, main_tex_fn
 
@@ -221,14 +223,12 @@ def norm_latex_to_html(main_tex_file: str, html_dir: str, html_err_file: str, ht
     html_output_dir = os.path.join(html_dir, file_id)
     html_file = os.path.join(html_output_dir, f'{file_id}_latexml.html')
     os.makedirs(html_output_dir, exist_ok=True)
-
     latex_to_html(
         tex_file=norm_tex_file,
         out_file=html_file,
         err_file=html_err_file,
         log_file=html_log_file
     )
-
     if os.path.exists(html_file):
         return html_file
 
@@ -260,7 +260,6 @@ def convert_latex_to_s2orc_json(
     os.makedirs(latex_norm_dir, exist_ok=True)
     os.makedirs(latex_xml_dir, exist_ok=True)
     os.makedirs(latex_log_dir, exist_ok=True)
-
     # convert to XML
     xml_file, html_file, main_tex_fn = convert_latex_to_xml(
         latex_zip, latex_expand_dir, latex_norm_dir, latex_xml_dir, latex_html_dir, latex_log_dir, cleanup_after
