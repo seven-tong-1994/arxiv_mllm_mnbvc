@@ -3,12 +3,16 @@ import time, sys
 import os
 import json
 import base64
+import shutil
 import subprocess
+import signal
+from pathlib import Path
 from typing import Optional, Dict
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..','..')))
 from doc2json.tex2json.tex_to_xml import convert_latex_to_s2orc_json
 from doc2json.tex2json.xml_to_json import convert_latex_xml_to_s2orc_json
-from doc2json.tex2json.json_to_md import convert_json_to_markdown
+from doc2json.tex2json.arxiv_to_mm import *
+
 import io
 from io import BytesIO
 import copy
@@ -91,6 +95,7 @@ def process_tex_file(
     cleanup_flag = not keep_flag
 
     # check if input file exists and output file doesn't
+
     if not os.path.exists(input_file):
         raise FileNotFoundError(f"{input_file} doesn't exist")
     if os.path.exists(output_file):
@@ -98,9 +103,8 @@ def process_tex_file(
 
     # process LaTeX
     xml_file, html_file, main_tex_fn = convert_latex_to_s2orc_json(input_file, temp_dir, cleanup_flag)
-    if not xml_file:
-        return None
-
+    if not xml_file or not html_file or not main_tex_fn:
+        return None, None
     # convert to S2ORC
     paper = convert_latex_xml_to_s2orc_json(xml_file, html_file, temp_dir, log_dir, grobid_config=grobid_config)
     # write to file
@@ -226,11 +230,28 @@ def split_pdf_images(main_latex_file, md_data):
     return pages_infos
 
 
+def timeout_handler(signum, frame):
+    raise TimeoutError("Function execution timed out after 1 minute.")
+
+
+def clean_tmp():
+    directory = Path('./')
+    for log_file in directory.rglob('*.log'):
+        try:
+            # 删除文件
+            os.remove(log_file)
+            print(f"已删除文件: {log_file}")
+        except Exception as e:
+            print(f"删除文件 {log_file} 时出错: {e}")
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Run S2ORC TEX2JSON")
     parser.add_argument("-i", "--input", default=None, help="path to the input TEX zip file")
     parser.add_argument("-t", "--temp", default='temp', help="path to a temp dir for partial files")
     parser.add_argument("-o", "--output", default='output', help="path to the output dir for putting json files")
+    parser.add_argument("--split_size", "-s", type=int, default=200,
+                        help="Split size")  # 500-1000MB 一个 parquet 文件
     parser.add_argument("-l", "--log", default='log', help="path to the log dir")
     parser.add_argument("-k", "--keep", default=True, help="keep temporary files")
 
@@ -239,6 +260,7 @@ if __name__ == '__main__':
     input_path = args.input
     temp_path = args.temp
     output_path = args.output
+    split_size = args.split_size
     log_path = args.log
     keep_temp = args.keep
 
@@ -249,20 +271,15 @@ if __name__ == '__main__':
 
     output_file, main_tex_file = process_tex_file(input_path, temp_path, output_path, log_path, keep_temp)
 
-    template = {"文件md5": None, "文件id": None, "页码": None, "块id": None, "文本": None, "图片": None, "处理时间": None, "数据类型": None, "bounding_box": None, "额外信息": None}
-    # json_path = '/root/autodl-tmp/s2orc-doc2json/output_dir/2004.14974.json'
-    with open(output_file, 'r') as file:
-        data = json.load(file)
-        # result = convert_to_target_format_cyp(data, template)
-        md_data = convert_json_to_markdown(data)
-        # with open('text.md', 'w', encoding='utf-8') as fw_md:
-        #     fw_md.write(md_data)
-        parquet_data = split_pdf_images(main_tex_file, md_data)
-        df = pd.DataFrame(parquet_data)
-        df.to_parquet(output_file.replace('.json', '.parquet'), engine="pyarrow", index=False)
-        runtime = round(time.time() - start_time, 3)
-       
-    # output_json_path = os.path.splitext(output_file)[0] + ".parquet"
-    # save_to_parquet(result, output_json_path)
+    # template = {"文件md5": None, "文件id": None, "页码": None, "块id": None, "文本": None, "图片": None,
+    #             "处理时间": None, "数据类型": None, "bounding_box": None, "额外信息": None}
+
+    parquet_out = output_file.replace('.json', '.parquet')
+    batchs = convert_to_rows(Path(output_file))
+    batch_to_parquet(Path(parquet_out), split_size, batchs)
+    runtime = round(time.time() - start_time, 3)
+    clean_tmp()
     print("runtime: %s seconds " % (runtime))
     print('done.')
+
+

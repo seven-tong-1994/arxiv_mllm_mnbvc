@@ -1,2 +1,0 @@
-2025-01-18 14:16:32.800 | INFO     | __main__:convert_to_rows:184 - process output_dir/2004.14974.json done, 150 rows generated, 843c5b50578aec6cc3f13b7e66a881ac 2004.14974.json
-2025-01-18 14:16:33.090 | INFO     | __main__:batch_to_parquet:221 - batch 0 done, test_0.parquet generated

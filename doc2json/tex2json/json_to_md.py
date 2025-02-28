@@ -183,8 +183,6 @@ def convert_json_to_markdown(json_data):
     text, bibgraphy = normal_bibgraphy(json_data['latex_parse']['bib_entries'], text)
     text, footnote = normal_reference(json_data['latex_parse']['ref_entries'], text)
     text = addition_reference(text, bibgraphy, footnote)
-    fw = open('test.md', 'w', encoding='utf-8')
-    fw.write(text)
     return text
 
 

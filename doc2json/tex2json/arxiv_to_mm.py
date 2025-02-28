@@ -17,6 +17,7 @@ import pyarrow.parquet as parquet
 
 from doc2json.tex2json.json_to_md import convert_json_to_markdown
 
+
 class ArxivBlock:
     def __init__(self, **kwargs) -> None:
         self.file_md5 = kwargs.get('file_md5')  # 图片md5 / json 内容 md5
@@ -35,7 +36,7 @@ class ArxivBlock:
             "页码": None,
             "块id": int(self.block_id),
             "文本": str(self.text),
-            "图像": str(self.image_data),
+            "图像": self.image_data,
             "块类型": str(self.category),
             "处理时间": str(self.timestamp),
             "元数据": str(self.meta_data)
@@ -98,15 +99,6 @@ def format_figure(figure_content, is_md_format=False):
     return caption, binary_list, size_list
 
 
-def restore_image_from_bytes(img_byte_arr):
-    try:
-        image = PILImage.open(io.BytesIO(img_byte_arr))
-        image.save('test.png')
-        return image
-    except Exception as e:
-        print(f"还原图片失败: {e}")
-        return None
-
 def read_image(img_path: Path) -> Tuple[bytes, Tuple[int, int]]:
     """将图片文件转换为二进制格式
 
@@ -118,6 +110,7 @@ def read_image(img_path: Path) -> Tuple[bytes, Tuple[int, int]]:
         Tuple[int, int]: 图片的宽度和高度
     """
     try:
+        print(img_path)
         if Path(img_path).suffix.lower() == ".pdf":
             image = convert_from_path(img_path)[0]
         else:
@@ -190,14 +183,11 @@ def convert_to_rows(input_file: Path):
         for i in range(len(text_content)):
             text = text_content[i]
             image = image_content[i]
-            if image is not None:
-                restore_image_from_bytes(image)
-            # print(type(image))
             item_category = category[i]
             meta = meta_data[i]
             rows.append(ArxivBlock(
                 file_md5=json_file_md5,
-                file_id=json_name.split('.')[0],
+                file_id=str(json_name).replace('.json', ''),
                 block_id=block_id,
                 text=text,
                 image_data=image,
@@ -206,7 +196,6 @@ def convert_to_rows(input_file: Path):
                 meta_data=json.dumps(meta, ensure_ascii=False),
             ))
             block_id += 1
-
     logger.info(
         f"process {input_file} done, {len(rows)} rows generated, {json_file_md5} {json_name}")
     return rows
@@ -271,16 +260,35 @@ def main():
     batch_to_parquet(output_file, split_size, batchs)
 
 
-def read_parquet(parquet_file):
-    parquet_data = pd.read_parquet(parquet_file)
+def bytes_to_img(img_byte_arr, img_path):
+    """将二进制数据转换为图片并保存
 
-    for index, row in parquet_data.iterrows():
-        if row.to_dict()['块类型'] == 'figure':
-            dict_data = row.to_dict()
-            image = base64.b64encode(dict_data['图片']).decode('utf-8')
-            restore_image_from_bytes(image)
+    Args:
+        img_byte_arr: 图片的二进制数据
+        img_path: 保存图片的路径
+    """
+    try:
+        image = PILImage.open(io.BytesIO(img_byte_arr))
+        image.save(img_path)
+        logger.info(f"图片已保存到: {img_path}")
+    except Exception as e:
+        logger.error(f"二进制数据转换图片失败: {e}")
+
+
+def read_parquet(path):
+    # 从 Parquet 文件读取数据
+    df = pd.read_parquet(path)
+    # df to dict
+    rows = df.to_dict(orient="records")
+    # df to blocks
+    for row in rows:
+        block = ArxivBlock()
+        block.from_dict(row)
+
+        if block.image_data:
+            bytes_to_img(block.image_data, Path(f"demo_{block.block_id}.png"))
 
 
 if __name__ == '__main__':
-    main()
-    # read_parquet('test_0.parquet')
+    # main()
+    read_parquet('../../output_dir/2004.14974_0.parquet')
